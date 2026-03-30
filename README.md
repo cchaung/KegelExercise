@@ -4,12 +4,10 @@
 
 ## 截圖
 
-| 主畫面 | 計時畫面 | 歷史紀錄 |
-|:---:|:---:|:---:|
-| ![主畫面](docs/screenshots/home.png) | ![計時畫面](docs/screenshots/timer.png) | ![歷史紀錄](docs/screenshots/history.png) |
-| 設定運動參數 | 緊繃 / 放鬆階段倒計時 | 日曆檢視運動紀錄 |
-
-> 截圖請放置於 `docs/screenshots/` 資料夾
+| 主畫面 | 震動設定 | 計時（緊繃） | 計時（放鬆） | 歷史紀錄 |
+| :---: | :---: | :---: | :---: | :---: |
+| ![主畫面](doc/screenshots/home.png) | ![震動設定](doc/screenshots/vibration_setting.png) | ![計時緊繃](doc/screenshots/timer1.png) | ![計時放鬆](doc/screenshots/timer2.png) | ![歷史紀錄](doc/screenshots/history.png) |
+| 設定訓練參數 | 震動強度調整 | 緊繃階段倒計時 | 放鬆階段倒計時 | 日曆檢視運動紀錄 |
 
 ---
 
@@ -27,7 +25,7 @@
 
 ## 使用流程
 
-```
+```text
 主畫面  →  調整訓練設定  →  開始運動
                                 ↓
                          計時畫面（緊繃 ↔ 放鬆 循環）
@@ -47,7 +45,7 @@
 
 **資料流：**
 
-```
+```text
 Composable Screen
       ↕ StateFlow
    ViewModel
@@ -61,7 +59,7 @@ Composable Screen
 ### 主要模組
 
 | 模組 | 說明 |
-|------|------|
+| --- | --- |
 | `ui/screen/home/` | 主畫面：設定訓練參數、震動強度 |
 | `ui/screen/timer/` | 計時畫面：倒計時、階段切換動畫 |
 | `ui/screen/history/` | 歷史紀錄：日曆視圖 + 紀錄卡片 |
@@ -77,7 +75,7 @@ Composable Screen
 ## 環境需求
 
 | 項目 | 版本 |
-|------|------|
+| --- | --- |
 | Min SDK | Android 12（API 31） |
 | Target SDK | Android 15（API 35） |
 | Kotlin | 2.0.21 |
@@ -104,7 +102,8 @@ cd KegelExercise
 ```
 
 > 需要在 `local.properties` 設定 Android SDK 路徑（此檔案不進版控）：
-> ```
+>
+> ```properties
 > sdk.dir=/path/to/Android/Sdk
 > ```
 
@@ -113,7 +112,7 @@ cd KegelExercise
 ## 權限說明
 
 | 權限 | 用途 |
-|------|------|
+| --- | --- |
 | `VIBRATE` | 階段切換與完成時的震動反饋 |
 | `FOREGROUND_SERVICE` | 背景計時不中斷 |
 | `POST_NOTIFICATIONS` | 顯示訓練中 / 完成通知 |
