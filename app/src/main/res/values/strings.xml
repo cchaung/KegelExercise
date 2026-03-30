@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">凱格爾運動計時器</string>
+
+    <!-- Screen titles -->
+    <string name="screen_home">開始運動</string>
+    <string name="screen_timer">運動計時</string>
+    <string name="screen_history">運動紀錄</string>
+
+    <!-- Settings -->
+    <string name="setting_duration">每次運動時長</string>
+    <string name="setting_tighten">緊繃時間</string>
+    <string name="setting_relax">放鬆時間</string>
+    <string name="setting_vibration">震動強度</string>
+    <string name="unit_minutes">分鐘</string>
+    <string name="unit_seconds">秒</string>
+
+    <!-- Buttons -->
+    <string name="btn_start">開始運動</string>
+    <string name="btn_stop">停止</string>
+    <string name="btn_close">關閉</string>
+    <string name="btn_vibration_settings">震動設定</string>
+
+    <!-- Timer phase labels -->
+    <string name="phase_tighten">緊 繃</string>
+    <string name="phase_relax">放 鬆</string>
+
+    <!-- Timer labels -->
+    <string name="label_phase_remaining">當前階段剩餘</string>
+    <string name="label_total_remaining">總剩餘時間：%1$s</string>
+    <string name="label_cycle">已完成循環：%1$d 次</string>
+
+    <!-- Stop dialog -->
+    <string name="dialog_stop_title">停止運動</string>
+    <string name="dialog_stop_message">確定要停止目前的運動嗎？本次紀錄仍會儲存。</string>
+    <string name="dialog_stop_confirm">停止</string>
+    <string name="dialog_stop_cancel">繼續</string>
+
+    <!-- History -->
+    <string name="history_empty">這一天沒有運動紀錄</string>
+
+    <!-- Notifications -->
+    <string name="notification_timer_title">凱格爾運動進行中</string>
+    <string name="notification_timer_text">剩餘時間：%1$s</string>
+    <string name="notification_complete_title">運動完成！</string>
+    <string name="notification_complete_text">太棒了！本次凱格爾運動已完成。</string>
+</resources>

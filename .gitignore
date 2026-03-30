@@ -1,0 +1,38 @@
+# Built outputs
+build/
+app/build/
+*.apk
+*.aab
+*.aar
+
+# Gradle
+.gradle/
+gradle-app.setting
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration
+local.properties
+
+# Android Studio / IntelliJ IDEA
+.idea/
+!.idea/.gitignore
+*.iml
+*.iws
+*.ipr
+
+# Kotlin build cache
+.kotlin/
+
+# Heap dumps
+*.hprof
+
+# macOS
+.DS_Store
+
+# Claude Code local settings
+.claude/
+
+# Keystore files (sensitive)
+*.jks
+*.keystore
+release.properties
