@@ -11,15 +11,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ./gradlew build               # Full build (all variants)
 ./gradlew clean               # Clean build artifacts
 
-# Testing (framework not yet configured)
-./gradlew test                # Unit tests
-./gradlew connectedAndroidTest # Instrumented tests
+# Testing
+./gradlew test                 # JVM unit tests (app/src/test)
+./gradlew testDebugUnitTest    # Debug variant only, faster
+./gradlew connectedAndroidTest # Instrumented tests (needs a device/emulator)
 
 # Code quality
 ./gradlew lint                # Lint checks
 ```
 
-> Note: Testing dependencies are not yet added to `libs.versions.toml` or `app/build.gradle.kts`. The `testInstrumentationRunner` is declared but the runner dependency is missing.
+### Testing
+
+- **Unit tests** live in `app/src/test/` and run on the JVM. Stack: JUnit4 + Truth + MockK + kotlinx-coroutines-test + Turbine.
+- **Instrumented tests** live in `app/src/androidTest/` (dependencies are wired, no tests written yet).
+- `testing/` holds the shared helpers: `MainDispatcherRule` (swaps `Dispatchers.Main` so `viewModelScope` works), `FakeExerciseRecordDao` (in-memory DAO mirroring the real `@Query` semantics), `exerciseRecord()` (record factory).
+- ViewModels are tested by calling their constructor directly — Hilt is not involved in unit tests.
+- Flows exposed via `stateIn(..., WhileSubscribed)` stay on their initial value until collected; tests must keep a collector alive (see `HistoryViewModelTest.keepHot`).
 
 ## Architecture
 

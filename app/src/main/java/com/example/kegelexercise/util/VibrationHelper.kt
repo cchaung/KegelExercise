@@ -21,9 +21,9 @@ class VibrationHelper @Inject constructor(
      * Two short pulses to signal phase switch (tighten ↔ relax).
      * @param level 1–10 user-facing intensity. Controls both pulse duration and amplitude.
      */
-    fun vibratePhaseChange(level: Int = 7) {
-        val pulseDuration = levelToDuration(level)  // 40–220 ms
-        val amplitude = levelToAmplitude(level)
+    fun vibratePhaseChange(level: Int = VibrationLevel.DEFAULT) {
+        val pulseDuration = VibrationLevel.pulseDurationMs(level)
+        val amplitude = amplitudeFor(level)
         val effect = VibrationEffect.createWaveform(
             longArrayOf(0, pulseDuration, 60, pulseDuration),
             intArrayOf(0, amplitude, 0, amplitude),
@@ -36,16 +36,15 @@ class VibrationHelper @Inject constructor(
      * Single long pulse to signal session completion.
      * @param level 1–10 user-facing intensity.
      */
-    fun vibrateCompletion(level: Int = 7) {
-        val duration = (level * 80 + 120).toLong()  // 200–920 ms
-        val amplitude = levelToAmplitude(level)
-        val effect = VibrationEffect.createOneShot(duration, amplitude)
+    fun vibrateCompletion(level: Int = VibrationLevel.DEFAULT) {
+        val effect = VibrationEffect.createOneShot(
+            VibrationLevel.completionDurationMs(level),
+            amplitudeFor(level)
+        )
         vibrator.vibrate(effect)
     }
 
-    private fun levelToAmplitude(level: Int): Int =
-        if (vibrator.hasAmplitudeControl()) (level * 25).coerceIn(1, 255)
+    private fun amplitudeFor(level: Int): Int =
+        if (vibrator.hasAmplitudeControl()) VibrationLevel.amplitude(level)
         else VibrationEffect.DEFAULT_AMPLITUDE
-
-    private fun levelToDuration(level: Int): Long = (level * 20 + 20).toLong()  // 40–220 ms
 }
