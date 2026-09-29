@@ -14,6 +14,15 @@ datastore = "1.1.1"
 coreKtx = "1.15.0"
 activityCompose = "1.9.3"
 
+# Testing
+junit = "4.13.2"
+mockk = "1.14.2"
+truth = "1.4.4"
+turbine = "1.2.0"
+archCoreTesting = "2.2.0"
+androidxTestJunit = "1.2.1"
+espresso = "3.6.1"
+
 [libraries]
 # Core
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -54,6 +63,21 @@ kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 
 # DataStore
 androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+
+# Testing - unit tests (JVM, src/test)
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "archCoreTesting" }
+
+# Testing - instrumented tests (device/emulator, src/androidTest)
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestJunit" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
